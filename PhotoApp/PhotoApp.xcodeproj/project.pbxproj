@@ -16,6 +16,11 @@
 		70835B3E2B35667F006E86A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70835B3C2B35667F006E86A3 /* LaunchScreen.storyboard */; };
 		70835B532B3566AE006E86A3 /* SignupFromModelValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70835B522B3566AE006E86A3 /* SignupFromModelValidatorTests.swift */; };
 		70835B552B356712006E86A3 /* SignupFromModelValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70835B542B356712006E86A3 /* SignupFromModelValidator.swift */; };
+		70BDAAF02B3C1CAC0030159D /* SignupWebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BDAAEF2B3C1CAC0030159D /* SignupWebServiceTests.swift */; };
+		70BDAAF32B3C1E110030159D /* SignupWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BDAAF22B3C1E110030159D /* SignupWebService.swift */; };
+		70BDAAF52B3C1F6B0030159D /* SignupFormRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BDAAF42B3C1F6B0030159D /* SignupFormRequestModel.swift */; };
+		70BDAAF72B3C20480030159D /* SignupResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BDAAF62B3C20480030159D /* SignupResponseModel.swift */; };
+		70BDAAFB2B3C26810030159D /* SignupErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BDAAFA2B3C26810030159D /* SignupErrors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +46,11 @@
 		70835B492B35668D006E86A3 /* PhotoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		70835B522B3566AE006E86A3 /* SignupFromModelValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupFromModelValidatorTests.swift; sourceTree = "<group>"; };
 		70835B542B356712006E86A3 /* SignupFromModelValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupFromModelValidator.swift; sourceTree = "<group>"; };
+		70BDAAEF2B3C1CAC0030159D /* SignupWebServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupWebServiceTests.swift; sourceTree = "<group>"; };
+		70BDAAF22B3C1E110030159D /* SignupWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupWebService.swift; sourceTree = "<group>"; };
+		70BDAAF42B3C1F6B0030159D /* SignupFormRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupFormRequestModel.swift; sourceTree = "<group>"; };
+		70BDAAF62B3C20480030159D /* SignupResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupResponseModel.swift; sourceTree = "<group>"; };
+		70BDAAFA2B3C26810030159D /* SignupErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupErrors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,11 +92,10 @@
 		70835B302B35667D006E86A3 /* PhotoApp */ = {
 			isa = PBXGroup;
 			children = (
+				70E56E172B3C031E0080AA2E /* Signup */,
 				70835B312B35667D006E86A3 /* AppDelegate.swift */,
 				70835B332B35667D006E86A3 /* SceneDelegate.swift */,
 				70835B352B35667D006E86A3 /* ViewController.swift */,
-				70835B542B356712006E86A3 /* SignupFromModelValidator.swift */,
-				7002FC0A2B3597C300C83FB5 /* SignupConstants.swift */,
 				70835B372B35667D006E86A3 /* Main.storyboard */,
 				70835B3A2B35667F006E86A3 /* Assets.xcassets */,
 				70835B3C2B35667F006E86A3 /* LaunchScreen.storyboard */,
@@ -98,9 +107,71 @@
 		70835B4A2B35668D006E86A3 /* PhotoAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				70835B522B3566AE006E86A3 /* SignupFromModelValidatorTests.swift */,
+				70BDAAEA2B3C1C3F0030159D /* Signup */,
 			);
 			path = PhotoAppTests;
+			sourceTree = "<group>";
+		};
+		70BDAAE92B3C1C390030159D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				70835B522B3566AE006E86A3 /* SignupFromModelValidatorTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		70BDAAEA2B3C1C3F0030159D /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				70BDAAEB2B3C1C620030159D /* Network */,
+				70BDAAE92B3C1C390030159D /* Models */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		70BDAAEB2B3C1C620030159D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				70BDAAEF2B3C1CAC0030159D /* SignupWebServiceTests.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		70BDAAF12B3C1DFE0030159D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				70BDAAF22B3C1E110030159D /* SignupWebService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		70E56E172B3C031E0080AA2E /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				70BDAAF12B3C1DFE0030159D /* Network */,
+				70E56E182B3C032A0080AA2E /* Models */,
+				70E56E192B3C03310080AA2E /* Controllers */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		70E56E182B3C032A0080AA2E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7002FC0A2B3597C300C83FB5 /* SignupConstants.swift */,
+				70835B542B356712006E86A3 /* SignupFromModelValidator.swift */,
+				70BDAAF42B3C1F6B0030159D /* SignupFormRequestModel.swift */,
+				70BDAAF62B3C20480030159D /* SignupResponseModel.swift */,
+				70BDAAFA2B3C26810030159D /* SignupErrors.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		70E56E192B3C03310080AA2E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,8 +278,12 @@
 			files = (
 				70835B362B35667D006E86A3 /* ViewController.swift in Sources */,
 				70835B322B35667D006E86A3 /* AppDelegate.swift in Sources */,
+				70BDAAF72B3C20480030159D /* SignupResponseModel.swift in Sources */,
 				70835B552B356712006E86A3 /* SignupFromModelValidator.swift in Sources */,
+				70BDAAFB2B3C26810030159D /* SignupErrors.swift in Sources */,
 				7002FC0B2B3597C300C83FB5 /* SignupConstants.swift in Sources */,
+				70BDAAF52B3C1F6B0030159D /* SignupFormRequestModel.swift in Sources */,
+				70BDAAF32B3C1E110030159D /* SignupWebService.swift in Sources */,
 				70835B342B35667D006E86A3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70BDAAF02B3C1CAC0030159D /* SignupWebServiceTests.swift in Sources */,
 				70835B532B3566AE006E86A3 /* SignupFromModelValidatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,6 +453,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 23S7Y45ACD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PhotoApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -384,6 +461,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -404,6 +482,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 23S7Y45ACD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PhotoApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -411,6 +490,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
