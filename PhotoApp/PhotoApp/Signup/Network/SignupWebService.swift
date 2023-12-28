@@ -35,7 +35,7 @@ class SignupWebService {
                 completion(signupResponseModel, nil)
             }
             else {
-                // TODO.. create a new unit test to handle error here
+                completion(nil, SignupErrors.invalidResponseModel)
             }
         }
         dataTask.resume()

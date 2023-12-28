@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SignupErrors: LocalizedError {
+enum SignupErrors: LocalizedError, Equatable {
     
     case invalidResponseModel
     case invalidRequestURLString
