@@ -9,7 +9,6 @@
     }
   ],
   "defaultOptions" : {
-    "codeCoverage" : false,
     "targetForVariableExpansion" : {
       "containerPath" : "container:PhotoApp.xcodeproj",
       "identifier" : "70835B2D2B35667D006E86A3",
