@@ -36,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		7002FC0A2B3597C300C83FB5 /* SignupConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupConstants.swift; sourceTree = "<group>"; };
+		70130CA12B3EA2E300848591 /* PhotoApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PhotoApp.xctestplan; sourceTree = "<group>"; };
 		703CC87A2B3D4D1B00F3F32F /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		70835B2E2B35667D006E86A3 /* PhotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70835B312B35667D006E86A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +77,7 @@
 		70835B252B35667D006E86A3 = {
 			isa = PBXGroup;
 			children = (
+				70130CA12B3EA2E300848591 /* PhotoApp.xctestplan */,
 				70835B302B35667D006E86A3 /* PhotoApp */,
 				70835B4A2B35668D006E86A3 /* PhotoAppTests */,
 				70835B2F2B35667D006E86A3 /* Products */,
