@@ -19,7 +19,7 @@ final class SignupPresenterTests: XCTestCase {
     }
     
     func testSignupPresenter_WhenInformationProvided_WillValidateEachProperties() {
-        // Arrange
+        // Arrange 
         let signupFromModel = SignupFromModel(firstName: "Sergey",
                                               lastName: "Kargopolov",
                                               email: "test@test.com",
@@ -27,12 +27,17 @@ final class SignupPresenterTests: XCTestCase {
                                               repeatPassword: "12345678")
         
         let mockSignupModelValidator = MockSignupModelValidator()
-        let sut = SignupPresenter()
+        
+        let sut = SignupPresenter(fromModelValidator: mockSignupModelValidator)
         
         // Act
         sut.processUserSignup(fromModel: signupFromModel)
         
         // Assert
         XCTAssertTrue(mockSignupModelValidator.isFirstNameValidated)
+        XCTAssertTrue(mockSignupModelValidator.isLastNameValidated)
+        XCTAssertTrue(mockSignupModelValidator.isEmailFormateValidated)
+        XCTAssertTrue(mockSignupModelValidator.isPasswordValidated)
+        XCTAssertTrue(mockSignupModelValidator.isPasswordEqualityValidated)
     }
 }
