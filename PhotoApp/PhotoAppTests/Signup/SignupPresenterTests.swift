@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import PhotoApp
 
 final class SignupPresenterTests: XCTestCase {
     
@@ -19,7 +20,19 @@ final class SignupPresenterTests: XCTestCase {
     
     func testSignupPresenter_WhenInformationProvided_WillValidateEachProperties() {
         // Arrange
+        let signupFromModel = SignupFromModel(firstName: "Sergey",
+                                              lastName: "Kargopolov",
+                                              email: "test@test.com",
+                                              password: "12345678",
+                                              repeatPassword: "12345678")
+        
+        let mockSignupModelValidator = MockSignupModelValidator()
+        let sut = SignupPresenter()
+        
         // Act
+        sut.processUserSignup(fromModel: signupFromModel)
+        
         // Assert
+        XCTAssertTrue(mockSignupModelValidator.isFirstNameValidated)
     }
 }
