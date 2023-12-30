@@ -84,6 +84,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7029699D2B3FF51F00858E87 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				702969972B3FE52600858E87 /* SignupPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		7029699E2B3FF53000858E87 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				7029699B2B3FE9CF00858E87 /* SignupModelValidatorProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		7029699F2B3FF54500858E87 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				703CC87A2B3D4D1B00F3F32F /* MockURLProtocol.swift */,
+				702969992B3FE77A00858E87 /* MockSignupModelValidator.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		702969A12B3FF55B00858E87 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				702969932B3FDF5400858E87 /* SignupPresenterTests.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		70835B252B35667D006E86A3 = {
 			isa = PBXGroup;
 			children = (
@@ -137,11 +170,10 @@
 		70BDAAEA2B3C1C3F0030159D /* Signup */ = {
 			isa = PBXGroup;
 			children = (
+				7029699F2B3FF54500858E87 /* Mocks */,
+				702969A12B3FF55B00858E87 /* Presenter */,
 				70BDAAEB2B3C1C620030159D /* Network */,
 				70BDAAE92B3C1C390030159D /* Models */,
-				703CC87A2B3D4D1B00F3F32F /* MockURLProtocol.swift */,
-				702969932B3FDF5400858E87 /* SignupPresenterTests.swift */,
-				702969992B3FE77A00858E87 /* MockSignupModelValidator.swift */,
 			);
 			path = Signup;
 			sourceTree = "<group>";
@@ -165,11 +197,11 @@
 		70E56E172B3C031E0080AA2E /* Signup */ = {
 			isa = PBXGroup;
 			children = (
+				7029699E2B3FF53000858E87 /* Protocol */,
+				7029699D2B3FF51F00858E87 /* Presenter */,
 				70BDAAF12B3C1DFE0030159D /* Network */,
 				70E56E182B3C032A0080AA2E /* Models */,
 				70E56E192B3C03310080AA2E /* Controllers */,
-				702969972B3FE52600858E87 /* SignupPresenter.swift */,
-				7029699B2B3FE9CF00858E87 /* SignupModelValidatorProtocol.swift */,
 			);
 			path = Signup;
 			sourceTree = "<group>";
