@@ -40,6 +40,7 @@ final class SignupPresenterTests: XCTestCase {
         mockSignupModelValidator = nil
         mockSignupWebService = nil
         sut = nil
+        mockSignupViewDelegate = nil
     }
     
     func testSignupPresenter_WhenInformationProvided_WillValidateEachProperties() {
@@ -67,7 +68,6 @@ final class SignupPresenterTests: XCTestCase {
     func testSignupPresenter_WhenSignupOpreationSuccessful_CallsSuccessOnViewDelegate() {
         // Arrange
         let myExpectation = expectation(description: "Expected the successfulSignup() method to be called")
-        
         mockSignupViewDelegate.expectation = myExpectation
         
         // Act
@@ -75,6 +75,22 @@ final class SignupPresenterTests: XCTestCase {
         self.wait(for: [myExpectation], timeout: 5)
         
         // Assert
-        XCTAssertEqual(mockSignupViewDelegate.successfulSignupCounter, 1)
+        XCTAssertEqual(mockSignupViewDelegate.successfulSignupCounter, 1, "The successful signup() was called more then one time")
+    }
+    
+    func testSignupWebService_WhenURLRequestFails_ReturnsErrorMessageDescription() {
+        // Arrange
+        let expectation = self.expectation(description: "A failed Request expectation")
+        mockSignupViewDelegate.expectation = expectation
+        mockSignupWebService.shouldReturnError = true
+        
+        // Act
+        sut.processUserSignup(fromModel: signupFromModel)
+        self.wait(for: [expectation], timeout: 2)
+        
+        // Assert
+        XCTAssertEqual(mockSignupViewDelegate.successfulSignupCounter, 0)
+        XCTAssertEqual(mockSignupViewDelegate.errorHandlerCounter, 1)
+        XCTAssertNotNil(mockSignupViewDelegate.signupError)
     }
 }

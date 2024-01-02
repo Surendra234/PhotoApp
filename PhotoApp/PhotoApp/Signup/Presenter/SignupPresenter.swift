@@ -48,6 +48,11 @@ class SignupPresenter {
         webService.signup(withFrom: requestModel) { [weak self] responceModel, error in
             guard let self = self else { return}
             
+            if let error = error {
+                self.delegate?.errorHandler(error: .failedRequest(description: error.localizedDescription))
+                return
+            }
+            
             if let _ = responceModel {
                 self.delegate?.successfullSignup()
                 return
