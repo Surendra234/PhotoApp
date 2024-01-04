@@ -95,12 +95,25 @@ final class SignupPresenterTests: XCTestCase {
     }
     
     func testSignupPresenter_WhenProvidedInvalidaCharcater_ThrowsAnError() {
-        XCTAssertThrowsError(try sut.isFirstNameValid("Surendra#"), "The isFirstNameValid() func should throw an error when first name containt illigale charcter") { error in
-            XCTAssertEqual(error as? SignupErrors?, SignupErrors.illigleCharaterFound)
+//        XCTAssertThrowsError(try sut.isFirstNameValid("Surendra#"), "The isFirstNameValid() should throw an error when first name containt illigale charcter") { error in
+//            XCTAssertEqual(error as? SignupErrors?, SignupErrors.illigleCharaterFound)
+//        }
+        
+        do {
+            let _ = try sut.isFirstNameValid("Surendra@")
+            XCTFail("The isFirstNameValid() was supposed to throw an error when firstName containt illage charcter")
+        }
+        catch SignupErrors.illigleCharaterFound {
+            // successfull passign
+            return
+        }
+        catch {
+            XCTFail("The isFirstNameValid() was supposed to throw an SignupErrors.illigleCharaterFound when firstName containt illigle charcter, An throw diffrent error")
+            return
         }
     }
     
     func testSignupPresenter_WhenValidCharcterProvided_ThrowaNoError() {
-        XCTAssertNoThrow(try sut.isFirstNameValid("Surendra"), "The isFirstNameValid() func should throw no error when first name containt valid charcter")
+        XCTAssertNoThrow(try sut.isFirstNameValid("Surendra"), "The isFirstNameValid() should throw no error when first name containt valid charcter")
     }
 }
