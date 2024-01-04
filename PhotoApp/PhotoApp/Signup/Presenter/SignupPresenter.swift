@@ -13,6 +13,8 @@ class SignupPresenter: SignupPresenterProtocol {
     private let webService: SignupWebServiceProtocol
     private let delegate: SignupViewDeleagteProtocol?
     
+    private let invalidCharcter = CharacterSet(charactersIn: "{}!@#$%^&*.,[]`")
+    
     required init(fromModelValidator: SignupModelValidatorProtocol,
          webService: SignupWebServiceProtocol,
          delegate: SignupViewDeleagteProtocol
@@ -58,5 +60,19 @@ class SignupPresenter: SignupPresenterProtocol {
                 return
             }
         }
+    }
+    
+    func isFirstNameValid(_ firstName: String) throws -> Bool {
+        var returnValue = true
+        
+        if (firstName.rangeOfCharacter(from: invalidCharcter) != nil) {
+            throw SignupErrors.illigleCharaterFound
+        }
+        
+        if firstName.count < 2 || firstName.count > 10 {
+            returnValue = false
+        }
+        
+        return returnValue
     }
 }

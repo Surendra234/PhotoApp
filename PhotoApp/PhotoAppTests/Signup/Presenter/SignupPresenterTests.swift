@@ -93,4 +93,14 @@ final class SignupPresenterTests: XCTestCase {
         XCTAssertEqual(mockSignupViewDelegate.errorHandlerCounter, 1)
         XCTAssertNotNil(mockSignupViewDelegate.signupError)
     }
+    
+    func testSignupPresenter_WhenProvidedInvalidaCharcater_ThrowsAnError() {
+        XCTAssertThrowsError(try sut.isFirstNameValid("Surendra#"), "The isFirstNameValid() func should throw an error when first name containt illigale charcter") { error in
+            XCTAssertEqual(error as? SignupErrors?, SignupErrors.illigleCharaterFound)
+        }
+    }
+    
+    func testSignupPresenter_WhenValidCharcterProvided_ThrowaNoError() {
+        XCTAssertNoThrow(try sut.isFirstNameValid("Surendra"), "The isFirstNameValid() func should throw no error when first name containt valid charcter")
+    }
 }

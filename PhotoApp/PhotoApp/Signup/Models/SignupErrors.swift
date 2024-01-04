@@ -12,6 +12,7 @@ enum SignupErrors: LocalizedError, Equatable {
     case invalidResponseModel
     case invalidRequestURLString
     case failedRequest(description: String)
+    case illigleCharaterFound
     
     var errorDescription: String? {
         switch self {
@@ -19,6 +20,8 @@ enum SignupErrors: LocalizedError, Equatable {
             return description
         case .invalidResponseModel, .invalidRequestURLString:
             return ""
+            
+        case .illigleCharaterFound: return ""
         }
     }
 }
