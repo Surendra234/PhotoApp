@@ -61,33 +61,50 @@ final class SignupFlowUITests: XCTestCase {
     
     func testViewController_WhenInvalidFormSubmitted_PresentsErrorAlertDialog() {
         // Arrange
-        let firstName = app.textFields["firstNameTextField"]
         firstName.tap()
         firstName.typeText("S")
         
-        let lastName = app.textFields["lastNameTextField"]
         lastName.tap()
         lastName.typeText("M")
         
-        let emailAddress = app.textFields["emailTextField"]
         emailAddress.tap()
         emailAddress.typeText("@")
         
-        let password = app.secureTextFields["passwordTextField"]
         password.tap()
         password.typeText("12345678")
         
-        let repatPassword = app.secureTextFields["repatPasswordTextField"]
         repatPassword.tap()
         repatPassword.typeText("123")
-        
-        let signupButton = app.buttons["signupButton"]
         
         // Act
         signupButton.tap()
         
         // Assert
-        XCTAssertTrue(app.alerts["errorAlertDialog"].exists, "An error alert dialog was not presented when invalid signup form was submitted")
+        XCTAssertTrue(app.alerts["errorAlertDialog"].waitForExistence(timeout: 1), "An error alert dialog was not presented when invalid signup form was submitted")
+    }
+    
+    func testViewController_WhenValidFormSubmitted_PresentsSuccessAlertDialog() {
+        // Arrange
+        firstName.tap()
+        firstName.typeText("Surendra")
+        
+        lastName.tap()
+        lastName.typeText("Mahawar")
+        
+        emailAddress.tap()
+        emailAddress.typeText("surendra@gmail.com")
+        
+        password.tap()
+        password.typeText("12345678")
+        
+        repatPassword.tap()
+        repatPassword.typeText("12345678")
+                
+        // Act
+        signupButton.tap()
+        
+        // Assert
+        XCTAssertTrue(app.alerts["successAlertDialog"].waitForExistence(timeout: 1), "An success alert dialog was not presented when valid signup form was submitted")
     }
 
     func testLaunchPerformance() throws {

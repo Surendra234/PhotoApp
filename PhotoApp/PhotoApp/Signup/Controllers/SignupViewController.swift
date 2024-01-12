@@ -44,12 +44,19 @@ class SignupViewController: UIViewController {
 
 extension SignupViewController: SignupViewDeleagteProtocol {
     func successfullSignup() {
-        // TODO:
+        let alert = UIAlertController(title: "Success", message: "The signup opration was successful", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return}
+            alert.view.accessibilityIdentifier = "successAlertDialog"
+            self.present(alert, animated: true)
+        }
     }
     
     func errorHandler(error: SignupErrors) {
         let alert = UIAlertController(title: "Error", message: "Your request could not be processed at this time", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "ok", style: .default))
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
         
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return}
