@@ -26,23 +26,28 @@ class SignupPresenter: SignupPresenterProtocol {
     
     func processUserSignup(fromModel: SignupFromModel) {
         if !fromModelValidator.isFirstNameValid(firstName: fromModel.firstName) {
+            delegate?.errorHandler(error: .invalidFirstName)
             return
         }
         
         if !fromModelValidator.isLastNameValid(lastName: fromModel.lastName) {
+            delegate?.errorHandler(error: .invalidLastName)
             return
         }
         
         if !fromModelValidator.isValidEmailFormat(email: fromModel.email) {
+            delegate?.errorHandler(error: .invalidEmail)
             return
         }
         
         if !fromModelValidator.isPasswordValid(password: fromModel.password) {
+            delegate?.errorHandler(error: .invalidPassword)
             return
         }
         
         if !fromModelValidator.doPasswordsMatch(password: fromModel.password, repeatPassword: fromModel.repeatPassword) {
-            return 
+            delegate?.errorHandler(error: .invalidRepeatPassword)
+            return
         }
         
         let requestModel = SignupFormRequestModel(firstName: fromModel.firstName, lastName: fromModel.lastName, email: fromModel.email, password: fromModel.password)

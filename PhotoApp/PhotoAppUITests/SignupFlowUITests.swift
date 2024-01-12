@@ -42,6 +42,40 @@ final class SignupFlowUITests: XCTestCase {
         XCTAssertTrue(repatPassword.isEnabled, "repatPassword textField is not enable")
         XCTAssertTrue(signupButton.isEnabled, "signupButton textField is not enable")
     }
+    
+    func testViewController_WhenInvalidFormSubmitted_PresentsErrorAlertDialog() {
+        // Arrange
+        let app = XCUIApplication()
+        app.launch()
+
+        let firstName = app.textFields["firstNameTextField"]
+        firstName.tap()
+        firstName.typeText("S")
+        
+        let lastName = app.textFields["lastNameTextField"]
+        lastName.tap()
+        lastName.typeText("M")
+        
+        let emailAddress = app.textFields["emailTextField"]
+        emailAddress.tap()
+        emailAddress.typeText("@")
+        
+        let password = app.secureTextFields["passwordTextField"]
+        password.tap()
+        password.typeText("12345678")
+        
+        let repatPassword = app.secureTextFields["repatPasswordTextField"]
+        repatPassword.tap()
+        repatPassword.typeText("123")
+        
+        let signupButton = app.buttons["signupButton"]
+        
+        // Act
+        signupButton.tap()
+        
+        // Assert
+        XCTAssertTrue(app.alerts["errorAlertDialog"].exists, "An error alert dialog was not presented when invalid signup form was submitted")
+    }
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {

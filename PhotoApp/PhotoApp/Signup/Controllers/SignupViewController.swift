@@ -48,6 +48,13 @@ extension SignupViewController: SignupViewDeleagteProtocol {
     }
     
     func errorHandler(error: SignupErrors) {
-        // TODO:
+        let alert = UIAlertController(title: "Error", message: "Your request could not be processed at this time", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "ok", style: .default))
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return}
+            alert.view.accessibilityIdentifier = "errorAlertDialog"
+            self.present(alert, animated: true)
+        }
     }
 }
